@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 稳定浏览入口说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf9f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1e1e1e;
+      line-height: 1.7;
+      padding: 2.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* 极简留白卡片结构 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      margin-bottom: 2rem;
+    }
+
+    .card-subtle {
+      background: transparent;
+      box-shadow: none;
+      border: 1px solid #eae7e2;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+      color: #121212;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #6b6b6b;
+      margin-bottom: 2rem;
+      font-weight: 380;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 480;
+      margin-top: 1.8rem;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px solid #ece8e2;
+      padding-bottom: 0.3rem;
+      color: #1f1f1f;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 430;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+      color: #2c2c2c;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    /* 亮点网格 */
+    .grid-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .highlight-item {
+      background: #f5f3f0;
+      padding: 1.1rem 1rem;
+      border-radius: 18px;
+      line-height: 1.5;
+    }
+
+    .highlight-item .num {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8a8580;
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-weight: 460;
+      font-size: 1.02rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-item span {
+      font-size: 0.92rem;
+      color: #3b3b3b;
+    }
+
+    /* 场景卡片列表 */
+    .scenario-list {
+      list-style: none;
+      margin: 0.8rem 0 0.5rem;
+    }
+
+    .scenario-list li {
+      background: #f9f8f5;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 14px;
+      font-size: 0.94rem;
+      border-left: 4px solid #cac3b8;
+    }
+
+    /* faq 紧凑样式 */
+    .faq-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #dcd8d0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 470;
+      font-size: 0.96rem;
+    }
+
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #4a4a4a;
+      margin-top: 0.15rem;
+    }
+
+    /* 链接 */
+    a {
+      color: #1a3a5c;
+      text-decoration: none;
+      border-bottom: 1px solid #b6cadf;
+      transition: border-color 0.2s, background 0.1s;
+    }
+
+    a:hover {
+      border-bottom-color: #1a3a5c;
+      background: #f0f3f7;
+    }
+
+    /* 按钮 / 标签入口示意 */
+    .entry-tag {
+      display: inline-block;
+      background: #edebe7;
+      border-radius: 40px;
+      padding: 0.1rem 1rem 0.2rem;
+      font-size: 0.85rem;
+      color: #2a2a2a;
+      margin: 0 0.2rem;
+      border: 1px solid transparent;
+    }
+
+    .note-box {
+      background: #fbfaf8;
+      border: 1px solid #dfdad3;
+      border-radius: 18px;
+      padding: 1rem 1.3rem;
+      margin: 1.8rem 0 0.8rem;
+      font-size: 0.92rem;
+      color: #393939;
+    }
+
+    .small-meta {
+      font-size: 0.78rem;
+      color: #7d7a76;
+      margin-top: 1.5rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body {
+        padding: 1.5rem 0.9rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .grid-highlights {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero 区 -->
+    <div class="card" style="padding-top: 2.5rem;">
+      <h1>开云 · 稳定入口</h1>
+      <div class="subhead">一个日常浏览的轻说明页 · 从简洁出发</div>
+
+      <p>
+        如果你需要快速抵达 <a href="https://index-cn-ky.com">开云</a> 的界面，这里整理了一份围绕稳定性的使用参考。不堆叠术语，只把特点、场景和一些值得留意的细节说清楚。无论你是第一次听说，还是想找一个更安静的入口说明，下面几段或许能帮你省点时间。
+      </p>
+
+      <p style="font-size:0.93rem; color:#4b4b4b; margin-top:1.8rem;">
+        ⚬ 全文基于个人使用体验整理，页面结构保持克制的产品说明风格。
+      </p>
+    </div>
+
+    <!-- 亮点区 差异化卡片 -->
+    <div class="card card-subtle">
+      <h2>几点突出感受</h2>
+      <div class="grid-highlights">
+        <div class="highlight-item">
+          <span class="num">01</span>
+          <strong>加载一致性</strong>
+          <span>不同网络环境下响应速度波动小，基础页面结构稳定。</span>
+        </div>
+        <div class="highlight-item">
+          <span class="num">02</span>
+          <strong>布局克制</strong>
+          <span>信息层级分明，没有过度动效或复杂跳转，浏览压力低。</span>
+        </div>
+        <div class="highlight-item">
+          <span class="num">03</span>
+          <strong>无冗余引导</strong>
+          <span>不会频繁弹窗或强制关注，把选择权留给使用者。</span>
+        </div>
+        <div class="highlight-item">
+          <span class="num">04</span>
+          <strong>通用设备适配</strong>
+          <span>手机、平板、笔记本上排版均未出现明显错位或截断。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用建议 / 场景 -->
+    <div class="card">
+      <h2>适合怎么用</h2>
+      <p>以下是一些基于日常使用节奏的建议，不是操作手册，更多是参考角度：</p>
+
+      <ul class="scenario-list">
+        <li><strong>快速确认页面状态</strong> – 偶尔需要确认当前界面是否正常加载，把<a href="https://index-cn-ky.com">开云</a>当作一个稳定锚点，省去重复搜索的时间。</li>
+        <li><strong>作为安静标签页</strong> – 如果你习惯保留一个常驻入口，它的极简风格不会干扰注意力，适合长期挂在浏览器里。</li>
+        <li><strong>功能查阅前预热</strong> – 在需要详细了解具体功能前，先用这个页面熟悉基本分区，心里有个底。</li>
+        <li><strong>网络对比测试</strong> – 部分用户会用它作为网络连接的基础测试页，因为元素精炼，加载特征明显。</li>
+      </ul>
+
+      <div class="note-box">
+        <strong>一个小提醒</strong> · 由于互联网服务的动态属性，页面内容或路径可能随运营调整而变化。如果遇到显示异常，先检查本地网络或稍后再试。
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card card-subtle">
+      <h2>常见想法 · 简要回答</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">这个页面和主服务是什么关系？</div>
+        <div class="faq-answer">它更像一个信息集中页，提供稳定的浏览说明和指向。你可以通过页面中的 <a href="https://index-cn-ky.com">开云</a> 文字链接直达主界面。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">需要注册或者登录才能看吗？</div>
+        <div class="faq-answer">不需要。这个说明页本身完全公开，内容以介绍和使用建议为主，不涉及任何账户操作。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">手机访问会不会变形？</div>
+        <div class="faq-answer">已经针对窄屏做了适配，正文宽度和卡片间距会调整，阅读体验基本一致。如果觉得字号偏小，可以在浏览器设置里微调。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">为什么没有花哨的功能展示？</div>
+        <div class="faq-answer">因为出发点不是推销页面，而是提供一个真实、克制的介绍角度。如果你需要更多功能细节，建议直接通过<a href="https://index-cn-ky.com">开云</a>了解后续内容。</div>
+      </div>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <div class="card" style="background:#f8f6f3;">
+      <h2>访问说明 · 保持实在</h2>
+      <p>
+        这份介绍页不收录任何隐私信息，不做跳转追踪。链接指向的域名为 <code>index-cn-ky.com</code>，仅作为开放信息索引。所有描述均基于可用性观察，不含收益承诺或诱导性表述。如果你发现某个部分与你的实际体验有出入，欢迎自行判断。
+      </p>
+      <p>
+        页面内唯一的外部链接指向 <a href="https://index-cn-ky.com">开云</a>，你可以把它当作一个安静的起点。使用过程中如果遇到问题，先查看浏览器控制台或网络状态，大部分情况与本地环境有关。
+      </p>
+      <div style="margin-top: 1.2rem; border-top: 1px solid #e3ddd5; padding-top: 1rem; font-size:0.88rem; color:#5d5a55;">
+        <span>最后更新说明：本页内容不定期根据实际体验微调，不另行通知。</span>
+      </div>
+    </div>
+
+    <div class="small-meta">
+      <span>开云 —— 稳定入口 · 产品说明式页面</span>
+    </div>
+
+  </div>
+</body>
+</html>
